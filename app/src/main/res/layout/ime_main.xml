@@ -6,20 +6,266 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:background="#33a">
+        android:layout_height="240dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="键盘区域"
-            android:textColor="#fff"
-            android:textSize="42sp"
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/qwe"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/asd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/rtyu"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Q" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="W" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="E" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/rtyu"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/fgh"
+            app:layout_constraintLeft_toRightOf="@id/qwe"
+            app:layout_constraintRight_toLeftOf="@id/iop"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="R" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="T" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Y" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="U" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/iop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/jkl"
+            app:layout_constraintLeft_toRightOf="@id/rtyu"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="I" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="O" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="P" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/asd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/zxc"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/fgh"
+            app:layout_constraintTop_toBottomOf="@id/qwe">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="A" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="S" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="D" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/fgh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/vbn"
+            app:layout_constraintLeft_toRightOf="@id/asd"
+            app:layout_constraintRight_toLeftOf="@id/jkl"
+            app:layout_constraintTop_toBottomOf="@id/rtyu">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="F" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="G" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="H" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/jkl"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/m"
+            app:layout_constraintLeft_toRightOf="@id/fgh"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iop">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="J" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="K" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="L" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/zxc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
 
+            app:layout_constraintRight_toLeftOf="@id/vbn"
+            app:layout_constraintTop_toBottomOf="@id/asd">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Z" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="X" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="C" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/vbn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/zxc"
+            app:layout_constraintRight_toLeftOf="@id/m"
+            app:layout_constraintTop_toBottomOf="@id/fgh">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="V" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="B" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="N" />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            app:layout_constraintTop_toBottomOf="@id/jkl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/vbn"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/m"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="M" />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="," />
+
+            <TextView
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="." />
+        </com.pmbp.pmbpime.view.SwipeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="InputStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
 </resources>
