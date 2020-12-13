@@ -12,4 +12,9 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="SwipeLayout">
+        <item name="android:background">@drawable/bg_btn_group</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
 </resources>

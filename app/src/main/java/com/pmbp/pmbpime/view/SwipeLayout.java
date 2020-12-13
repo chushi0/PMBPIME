@@ -27,10 +27,23 @@ public class SwipeLayout extends ViewGroup {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        for (int i = 0; i < getChildCount(); i++) {
+            getChildAt(i).measure(
+                    MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec) / getChildCount(), MeasureSpec.EXACTLY),
+                    MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(heightMeasureSpec), MeasureSpec.AT_MOST));
+        }
+    }
+
+    @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int width = (r - l) / getChildCount();
+        int viewHeight = b - t;
         for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).layout(width * i, 0, width * i + width, b - t);
+            View child = getChildAt(i);
+            int height = child.getMeasuredHeight();
+            child.layout(width * i, (viewHeight - height) / 2, width * i + width, (viewHeight + height) / 2);
         }
     }
 

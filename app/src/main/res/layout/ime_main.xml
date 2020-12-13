@@ -2,17 +2,18 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp">
+        android:layout_height="200dp">
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/qwe"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/asd"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/rtyu"
@@ -39,9 +40,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/rtyu"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/fgh"
             app:layout_constraintLeft_toRightOf="@id/qwe"
             app:layout_constraintRight_toLeftOf="@id/iop"
@@ -74,9 +75,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/iop"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/jkl"
             app:layout_constraintLeft_toRightOf="@id/rtyu"
             app:layout_constraintRight_toRightOf="parent"
@@ -103,9 +104,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/asd"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/zxc"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/fgh"
@@ -132,9 +133,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/fgh"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/vbn"
             app:layout_constraintLeft_toRightOf="@id/asd"
             app:layout_constraintRight_toLeftOf="@id/jkl"
@@ -161,9 +162,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/jkl"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/m"
             app:layout_constraintLeft_toRightOf="@id/fgh"
             app:layout_constraintRight_toRightOf="parent"
@@ -190,9 +191,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/zxc"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
 
@@ -220,9 +221,9 @@
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/vbn"
+            style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/zxc"
             app:layout_constraintRight_toLeftOf="@id/m"
@@ -248,14 +249,14 @@
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
-            app:layout_constraintTop_toBottomOf="@id/jkl"
+            android:id="@+id/m"
+            style="@style/SwipeLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/vbn"
             app:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/m"
-            android:layout_width="0dp"
-            android:background="#FFFFFF"
-            android:layout_height="0dp">
+            app:layout_constraintTop_toBottomOf="@id/jkl">
 
             <TextView
                 style="@style/InputStyle"
