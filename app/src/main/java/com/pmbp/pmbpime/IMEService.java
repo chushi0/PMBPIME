@@ -2,6 +2,7 @@ package com.pmbp.pmbpime;
 
 import android.annotation.SuppressLint;
 import android.inputmethodservice.InputMethodService;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -27,6 +28,9 @@ public class IMEService extends InputMethodService {
         setupListener(inputView, R.id.zxc);
         setupListener(inputView, R.id.vbn);
         setupListener(inputView, R.id.m);
+
+        inputView.findViewById(R.id.space).setOnClickListener(v -> sendKeyChar(' '));
+        inputView.findViewById(R.id.backspace).setOnClickListener(v -> sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL));
     }
 
     private void setupListener(View inputView, int resId) {

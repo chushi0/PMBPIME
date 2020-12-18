@@ -194,9 +194,8 @@
             style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
             app:layout_constraintLeft_toLeftOf="parent"
-
             app:layout_constraintRight_toLeftOf="@id/vbn"
             app:layout_constraintTop_toBottomOf="@id/asd">
 
@@ -224,7 +223,7 @@
             style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
             app:layout_constraintLeft_toRightOf="@id/zxc"
             app:layout_constraintRight_toLeftOf="@id/m"
             app:layout_constraintTop_toBottomOf="@id/fgh">
@@ -253,7 +252,7 @@
             style="@style/SwipeLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
             app:layout_constraintLeft_toRightOf="@id/vbn"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/jkl">
@@ -275,6 +274,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="." />
+        </com.pmbp.pmbpime.view.SwipeLayout>
+
+        <com.pmbp.pmbpime.view.SwipeLayout
+            android:id="@+id/bottom"
+            style="@style/SwipeLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/zxc">
+
+            <TextView
+                android:id="@+id/space"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="SPACE" />
+
+            <TextView
+                android:id="@+id/backspace"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="←" />
+
         </com.pmbp.pmbpime.view.SwipeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
