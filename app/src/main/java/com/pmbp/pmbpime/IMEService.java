@@ -19,6 +19,8 @@ public class IMEService extends InputMethodService {
         setInputView(inputView);
         setCandidatesView(candidatesView);
 
+        inputView.findViewById(R.id.layout_1).setVisibility(View.INVISIBLE);
+
         setupListener(inputView, R.id.qwe);
         setupListener(inputView, R.id.rtyu);
         setupListener(inputView, R.id.iop);

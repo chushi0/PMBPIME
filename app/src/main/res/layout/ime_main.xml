@@ -6,8 +6,9 @@
     android:background="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_1"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="280dp">
 
         <com.pmbp.pmbpime.view.SwipeLayout
             android:id="@+id/qwe"
@@ -302,5 +303,16 @@
 
         </com.pmbp.pmbpime.view.SwipeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+
+        <com.pmbp.pmbpime.view.KeyboardLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </FrameLayout>
