@@ -14,6 +14,8 @@ import com.pmbp.pmbpime.view.KeyboardLayout;
 
 public class IMEService extends InputMethodService {
 
+    private static final int VIBRATE_TIME = 50;
+
     private KeyboardLayout keyboardLayout;
 
     private Vibrator vibrator;
@@ -46,15 +48,25 @@ public class IMEService extends InputMethodService {
         setupListener(inputView, R.id.zxc);
         setupListener(inputView, R.id.vbn);
         setupListener(inputView, R.id.m);
-        inputView.findViewById(R.id.space).setOnClickListener(v -> sendKeyChar(' '));
-        inputView.findViewById(R.id.backspace).setOnClickListener(v -> sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL));
+        inputView.findViewById(R.id.space).setOnClickListener(v -> {
+            vibrator.vibrate(VIBRATE_TIME);
+            sendKeyChar(' ');
+        });
+        inputView.findViewById(R.id.backspace).setOnClickListener(v -> {
+            vibrator.vibrate(VIBRATE_TIME);
+            sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL);
+        });
         inputView.findViewById(R.id.switch_single).setOnClickListener(v -> {
+            vibrator.vibrate(VIBRATE_TIME);
             inputView.findViewById(R.id.layout_2).setVisibility(View.VISIBLE);
             inputView.findViewById(R.id.layout_1).setVisibility(View.INVISIBLE);
             inputView.findViewById(R.id.layout_2).setEnabled(true);
             inputView.findViewById(R.id.layout_1).setEnabled(false);
         });
-        inputView.findViewById(R.id.capsLock).setOnClickListener(v -> revCapsLock());
+        inputView.findViewById(R.id.capsLock).setOnClickListener(v -> {
+            vibrator.vibrate(VIBRATE_TIME);
+            revCapsLock();
+        });
         TouchTickAction.setupView(inputView.findViewById(R.id.space));
         TouchTickAction.setupView(inputView.findViewById(R.id.backspace));
         TouchTickAction.setupView(inputView.findViewById(R.id.switch_single));
@@ -62,6 +74,7 @@ public class IMEService extends InputMethodService {
 
         keyboardLayout = inputView.findViewById(R.id.keyboard_single_hand);
         keyboardLayout.setListener((string, down, tick) -> {
+            vibrator.vibrate(VIBRATE_TIME);
             switch (string) {
                 case "🔡":
                     revCapsLock();
@@ -213,7 +226,6 @@ public class IMEService extends InputMethodService {
     }
 
     private void type(String string) {
-        vibrator.vibrate(0x10);
         if (capsLock) {
             getCurrentInputConnection().commitText(string.toUpperCase(), string.length());
         } else {
@@ -233,6 +245,7 @@ public class IMEService extends InputMethodService {
 
     private void keyboardClick(View view) {
         if (view instanceof TextView) {
+            vibrator.vibrate(VIBRATE_TIME);
             String text = ((TextView) view).getText().toString();
             type(text);
         }
