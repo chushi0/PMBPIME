@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_1"
         android:layout_width="match_parent"
@@ -288,11 +293,18 @@
             app:layout_constraintTop_toBottomOf="@id/zxc">
 
             <TextView
+                android:id="@+id/switch_single"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="👉" />
+
+            <TextView
                 android:id="@+id/space"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="SPACE" />
+                android:text="︺" />
 
             <TextView
                 android:id="@+id/backspace"
@@ -310,6 +322,7 @@
         android:layout_height="280dp">
 
         <com.pmbp.pmbpime.view.KeyboardLayout
+            android:id="@+id/keyboard_single_hand"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

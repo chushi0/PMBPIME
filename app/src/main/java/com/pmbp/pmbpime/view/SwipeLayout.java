@@ -2,7 +2,6 @@ package com.pmbp.pmbpime.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
@@ -10,11 +9,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pmbp.pmbpime.R;
-
 public class SwipeLayout extends ViewGroup {
 
-    private Paint mPaint;
+    private static final boolean DISPATCH_TOUCH_EVENT = false;
+
+    private final Paint mPaint;
     private int mSelect = -1;
 
     public SwipeLayout(Context context, AttributeSet attrs) {
@@ -66,27 +65,48 @@ public class SwipeLayout extends ViewGroup {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        postInvalidate();
         if (!isEnabled()) {
             mSelect = -1;
-            invalidate();
             return false;
         }
 
         int action = event.getAction();
         if (action == MotionEvent.ACTION_UP) {
-            if (mSelect != -1) {
-                getChildAt(mSelect).performClick();
+            if (!DISPATCH_TOUCH_EVENT) {
+                if (mSelect != -1) {
+                    getChildAt(mSelect).performClick();
+                }
             }
             mSelect = -1;
         } else {
             float x = event.getX();
 
             float width = (float) getWidth() / (float) getChildCount();
-            mSelect = (int) Math.floor(x / width);
-            if (mSelect < 0) mSelect = 0;
-            if (mSelect >= getChildCount()) mSelect = getChildCount() - 1;
+            int select = (int) Math.floor(x / width);
+            if (select < 0) select = 0;
+            if (select >= getChildCount()) select = getChildCount() - 1;
+
+            if (action == MotionEvent.ACTION_DOWN) {
+                mSelect = select;
+                if (DISPATCH_TOUCH_EVENT) {
+                    getChildAt(mSelect).dispatchTouchEvent(event);
+                }
+            } else {
+                if (DISPATCH_TOUCH_EVENT) {
+                    if (mSelect != select) {
+                        event.setAction(MotionEvent.ACTION_CANCEL);
+                        getChildAt(mSelect).dispatchTouchEvent(event);
+                        event.setAction(MotionEvent.ACTION_DOWN);
+                        getChildAt(select).dispatchTouchEvent(event);
+                    } else {
+                        getChildAt(mSelect).dispatchTouchEvent(event);
+                    }
+                }
+                mSelect = select;
+            }
+
         }
-        invalidate();
 
         return true;
     }
