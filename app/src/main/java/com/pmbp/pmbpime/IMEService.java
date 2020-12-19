@@ -3,6 +3,7 @@ package com.pmbp.pmbpime;
 import android.annotation.SuppressLint;
 import android.inputmethodservice.InputMethodService;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,12 +13,22 @@ import android.widget.TextView;
 import com.pmbp.pmbpime.view.KeyboardLayout;
 
 public class IMEService extends InputMethodService {
+
+    private KeyboardLayout keyboardLayout;
+
+    private Vibrator vibrator;
+
+    private boolean capsLock;
+    private View inputView;
+
     @SuppressLint({"ClickableViewAccessibility", "InflateParams"})
     @Override
     public void onCreate() {
         super.onCreate();
 
-        View inputView = getLayoutInflater().inflate(R.layout.ime_main, null);
+        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
+        inputView = getLayoutInflater().inflate(R.layout.ime_main, null);
         View candidatesView = getLayoutInflater().inflate(R.layout.ime_candidates, null);
 
         setInputView(inputView);
@@ -35,7 +46,6 @@ public class IMEService extends InputMethodService {
         setupListener(inputView, R.id.zxc);
         setupListener(inputView, R.id.vbn);
         setupListener(inputView, R.id.m);
-
         inputView.findViewById(R.id.space).setOnClickListener(v -> sendKeyChar(' '));
         inputView.findViewById(R.id.backspace).setOnClickListener(v -> sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL));
         inputView.findViewById(R.id.switch_single).setOnClickListener(v -> {
@@ -44,12 +54,18 @@ public class IMEService extends InputMethodService {
             inputView.findViewById(R.id.layout_2).setEnabled(true);
             inputView.findViewById(R.id.layout_1).setEnabled(false);
         });
+        inputView.findViewById(R.id.capsLock).setOnClickListener(v -> revCapsLock());
         TouchTickAction.setupView(inputView.findViewById(R.id.space));
         TouchTickAction.setupView(inputView.findViewById(R.id.backspace));
         TouchTickAction.setupView(inputView.findViewById(R.id.switch_single));
+        TouchTickAction.setupView(inputView.findViewById(R.id.capsLock));
 
-        ((KeyboardLayout) inputView.findViewById(R.id.keyboard_single_hand)).setListener((string, down, tick) -> {
+        keyboardLayout = inputView.findViewById(R.id.keyboard_single_hand);
+        keyboardLayout.setListener((string, down, tick) -> {
             switch (string) {
+                case "🔡":
+                    revCapsLock();
+                    break;
                 case "👈":
                     inputView.findViewById(R.id.layout_1).setVisibility(View.VISIBLE);
                     inputView.findViewById(R.id.layout_2).setVisibility(View.INVISIBLE);
@@ -63,10 +79,146 @@ public class IMEService extends InputMethodService {
                     sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL);
                     break;
                 default:
-                    getCurrentInputConnection().commitText(string, string.length());
+                    type(string);
                     break;
             }
         });
+    }
+
+    private void revCapsLock() {
+        capsLock = !capsLock;
+        keyboardLayout.setCapsLock(capsLock);
+        TextView textView;
+        if (capsLock) {
+            textView = inputView.findViewById(R.id.q);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.w);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.e);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.r);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.t);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.y);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.u);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.i);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.o);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.p);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.a);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.s);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.d);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.f);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.g);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.h);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.j);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.k);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.l);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.z);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.x);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.c);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.v);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.b);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.n);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.M);
+            toUpperCase(textView);
+            textView = inputView.findViewById(R.id.capsLock);
+            textView.setText("🔡");
+        } else {
+            textView = inputView.findViewById(R.id.q);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.w);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.e);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.r);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.t);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.y);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.u);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.i);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.o);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.p);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.a);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.s);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.d);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.f);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.g);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.h);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.j);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.k);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.l);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.z);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.x);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.c);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.v);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.b);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.n);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.M);
+            toLowerCase(textView);
+            textView = inputView.findViewById(R.id.capsLock);
+            textView.setText("🔠");
+        }
+    }
+
+    private void toUpperCase(TextView textView) {
+        String text = (String) textView.getText();
+        textView.setText(text.toUpperCase());
+    }
+
+    private void toLowerCase(TextView textView) {
+        String text = (String) textView.getText();
+        textView.setText(text.toLowerCase());
+    }
+
+    private void type(String string) {
+        vibrator.vibrate(0x10);
+        if (capsLock) {
+            getCurrentInputConnection().commitText(string.toUpperCase(), string.length());
+        } else {
+            getCurrentInputConnection().commitText(string.toLowerCase(), string.length());
+        }
     }
 
     private void setupListener(View inputView, int resId) {
@@ -82,7 +234,7 @@ public class IMEService extends InputMethodService {
     private void keyboardClick(View view) {
         if (view instanceof TextView) {
             String text = ((TextView) view).getText().toString();
-            getCurrentInputConnection().commitText(text, text.length());
+            type(text);
         }
     }
 

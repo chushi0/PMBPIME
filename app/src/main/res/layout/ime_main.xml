@@ -26,22 +26,25 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/q"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Q" />
+                android:text="q" />
 
             <TextView
+                android:id="@+id/w"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="W" />
+                android:text="w" />
 
             <TextView
+                android:id="@+id/e"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="E" />
+                android:text="e" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -55,28 +58,32 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/r"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="R" />
+                android:text="r" />
 
             <TextView
+                android:id="@+id/t"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="T" />
+                android:text="t" />
 
             <TextView
+                android:id="@+id/y"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Y" />
+                android:text="y" />
 
             <TextView
+                android:id="@+id/u"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="U" />
+                android:text="u" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -90,22 +97,25 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/i"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="I" />
+                android:text="i" />
 
             <TextView
+                android:id="@+id/o"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="O" />
+                android:text="o" />
 
             <TextView
+                android:id="@+id/p"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="P" />
+                android:text="p" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -119,22 +129,25 @@
             app:layout_constraintTop_toBottomOf="@id/qwe">
 
             <TextView
+                android:id="@+id/a"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="A" />
+                android:text="a" />
 
             <TextView
+                android:id="@+id/s"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="S" />
+                android:text="s" />
 
             <TextView
+                android:id="@+id/d"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="D" />
+                android:text="d" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -148,22 +161,25 @@
             app:layout_constraintTop_toBottomOf="@id/rtyu">
 
             <TextView
+                android:id="@+id/f"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="F" />
+                android:text="f" />
 
             <TextView
+                android:id="@+id/g"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="G" />
+                android:text="g" />
 
             <TextView
+                android:id="@+id/h"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="H" />
+                android:text="h" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -177,22 +193,25 @@
             app:layout_constraintTop_toBottomOf="@id/iop">
 
             <TextView
+                android:id="@+id/j"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="J" />
+                android:text="j" />
 
             <TextView
+                android:id="@+id/k"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="K" />
+                android:text="k" />
 
             <TextView
+                android:id="@+id/l"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="L" />
+                android:text="l" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -206,22 +225,25 @@
             app:layout_constraintTop_toBottomOf="@id/asd">
 
             <TextView
+                android:id="@+id/z"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Z" />
+                android:text="z" />
 
             <TextView
+                android:id="@+id/x"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="X" />
+                android:text="x" />
 
             <TextView
+                android:id="@+id/c"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="C" />
+                android:text="c" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -235,22 +257,25 @@
             app:layout_constraintTop_toBottomOf="@id/fgh">
 
             <TextView
+                android:id="@+id/v"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="V" />
+                android:text="v" />
 
             <TextView
+                android:id="@+id/b"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="B" />
+                android:text="b" />
 
             <TextView
+                android:id="@+id/n"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="N" />
+                android:text="n" />
         </com.pmbp.pmbpime.view.SwipeLayout>
 
         <com.pmbp.pmbpime.view.SwipeLayout
@@ -264,10 +289,11 @@
             app:layout_constraintTop_toBottomOf="@id/jkl">
 
             <TextView
+                android:id="@+id/M"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="M" />
+                android:text="m" />
 
             <TextView
                 style="@style/InputStyle"
@@ -292,12 +318,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/zxc">
 
+
             <TextView
-                android:id="@+id/switch_single"
+                android:id="@+id/number"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="👉" />
+                android:text="123" />
+
+            <TextView
+                android:id="@+id/capsLock"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="🔠" />
 
             <TextView
                 android:id="@+id/space"
@@ -305,6 +339,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="︺" />
+
+            <TextView
+                android:id="@+id/switch_single"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="👉" />
 
             <TextView
                 android:id="@+id/backspace"

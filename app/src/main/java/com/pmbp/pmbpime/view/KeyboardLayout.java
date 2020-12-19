@@ -9,7 +9,6 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -20,7 +19,8 @@ public class KeyboardLayout extends View {
     public static final long TICK_START = 500;
     public static final long TICK_PER = 50;
 
-    private static final String[] s1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "←"};
+    private static final String[] s1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "🔡", "←"};
+    private static final String[] s11 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "🔠", "←"};
     private static final String[] s2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L", "︺"};
     private static final String[] s3 = {"Z", "X", "C", "V", "B", "N", "M", "👈"};
 
@@ -30,6 +30,7 @@ public class KeyboardLayout extends View {
     private String lastType;
 
     private Listener listener;
+    private boolean capsLock;
 
     public KeyboardLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -69,7 +70,11 @@ public class KeyboardLayout extends View {
                 canvas.drawCircle(height * 0.03f, -height * (v + 0.03f), height * 0.05f, mPaint);
                 mPaint.setColor(Color.BLACK);
             }
-            canvas.drawText(s, 0, -height * v, mPaint);
+            if (capsLock) {
+                canvas.drawText(s.replace("🔠", "🔡").toUpperCase(), 0, -height * v, mPaint);
+            } else {
+                canvas.drawText(s.replace("🔡", "🔠").toLowerCase(), 0, -height * v, mPaint);
+            }
             canvas.rotate(90f / (strings.length + 1));
         }
         canvas.restore();
@@ -147,6 +152,11 @@ public class KeyboardLayout extends View {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void setCapsLock(boolean capsLock) {
+        this.capsLock = capsLock;
+        postInvalidate();
     }
 
     public interface Listener {
