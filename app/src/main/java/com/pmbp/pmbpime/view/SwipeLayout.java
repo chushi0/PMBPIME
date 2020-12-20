@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 
 public class SwipeLayout extends ViewGroup {
 
-    private static final boolean DISPATCH_TOUCH_EVENT = false;
-
     private final Paint mPaint;
     private int mSelect = -1;
+
+    private boolean dispatchTouchEvent;
 
     public SwipeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -73,9 +73,12 @@ public class SwipeLayout extends ViewGroup {
 
         int action = event.getAction();
         if (action == MotionEvent.ACTION_UP) {
-            if (!DISPATCH_TOUCH_EVENT) {
-                if (mSelect != -1) {
+            if (mSelect != -1) {
+                if (!dispatchTouchEvent) {
                     getChildAt(mSelect).performClick();
+                } else {
+                    event.setAction(MotionEvent.ACTION_UP);
+                    getChildAt(mSelect).dispatchTouchEvent(event);
                 }
             }
             mSelect = -1;
@@ -89,11 +92,11 @@ public class SwipeLayout extends ViewGroup {
 
             if (action == MotionEvent.ACTION_DOWN) {
                 mSelect = select;
-                if (DISPATCH_TOUCH_EVENT) {
+                if (dispatchTouchEvent) {
                     getChildAt(mSelect).dispatchTouchEvent(event);
                 }
             } else {
-                if (DISPATCH_TOUCH_EVENT) {
+                if (dispatchTouchEvent) {
                     if (mSelect != select) {
                         event.setAction(MotionEvent.ACTION_CANCEL);
                         getChildAt(mSelect).dispatchTouchEvent(event);
@@ -109,5 +112,9 @@ public class SwipeLayout extends ViewGroup {
         }
 
         return true;
+    }
+
+    public void setDispatchTouchEvent(boolean dispatchTouchEvent) {
+        this.dispatchTouchEvent = dispatchTouchEvent;
     }
 }

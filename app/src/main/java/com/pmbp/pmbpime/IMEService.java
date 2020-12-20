@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pmbp.pmbpime.view.KeyboardLayout;
+import com.pmbp.pmbpime.view.SwipeLayout;
 
 public class IMEService extends InputMethodService {
 
@@ -48,6 +49,9 @@ public class IMEService extends InputMethodService {
         setupListener(inputView, R.id.zxc);
         setupListener(inputView, R.id.vbn);
         setupListener(inputView, R.id.m);
+
+        ((SwipeLayout) inputView.findViewById(R.id.bottom)).setDispatchTouchEvent(true);
+
         inputView.findViewById(R.id.space).setOnClickListener(v -> {
             vibrator.vibrate(VIBRATE_TIME);
             sendKeyChar(' ');
@@ -67,31 +71,44 @@ public class IMEService extends InputMethodService {
             vibrator.vibrate(VIBRATE_TIME);
             revCapsLock();
         });
+        inputView.findViewById(R.id.enter).setOnClickListener(v -> {
+            vibrator.vibrate(VIBRATE_TIME);
+            sendDownUpKeyEvents(KeyEvent.KEYCODE_ENTER);
+        });
         TouchTickAction.setupView(inputView.findViewById(R.id.space));
         TouchTickAction.setupView(inputView.findViewById(R.id.backspace));
-        TouchTickAction.setupView(inputView.findViewById(R.id.switch_single));
-        TouchTickAction.setupView(inputView.findViewById(R.id.capsLock));
+        TouchTickAction.setupView(inputView.findViewById(R.id.enter));
+        TouchClickAction.setupView(inputView.findViewById(R.id.switch_single));
+        TouchClickAction.setupView(inputView.findViewById(R.id.capsLock));
 
         keyboardLayout = inputView.findViewById(R.id.keyboard_single_hand);
         keyboardLayout.setListener((string, down, tick) -> {
-            vibrator.vibrate(VIBRATE_TIME);
             switch (string) {
                 case "🔡":
-                    revCapsLock();
+                    if (tick) {
+                        vibrator.vibrate(VIBRATE_TIME);
+                        revCapsLock();
+                    }
                     break;
                 case "👈":
-                    inputView.findViewById(R.id.layout_1).setVisibility(View.VISIBLE);
-                    inputView.findViewById(R.id.layout_2).setVisibility(View.INVISIBLE);
-                    inputView.findViewById(R.id.layout_1).setEnabled(true);
-                    inputView.findViewById(R.id.layout_2).setEnabled(false);
+                    if (tick) {
+                        vibrator.vibrate(VIBRATE_TIME);
+                        inputView.findViewById(R.id.layout_1).setVisibility(View.VISIBLE);
+                        inputView.findViewById(R.id.layout_2).setVisibility(View.INVISIBLE);
+                        inputView.findViewById(R.id.layout_1).setEnabled(true);
+                        inputView.findViewById(R.id.layout_2).setEnabled(false);
+                    }
                     break;
                 case "︺":
+                    vibrator.vibrate(VIBRATE_TIME);
                     sendKeyChar(' ');
                     break;
                 case "←":
+                    vibrator.vibrate(VIBRATE_TIME);
                     sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL);
                     break;
                 default:
+                    vibrator.vibrate(VIBRATE_TIME);
                     type(string);
                     break;
             }
@@ -251,7 +268,6 @@ public class IMEService extends InputMethodService {
         }
     }
 
-
     private static class TouchTickAction implements View.OnTouchListener {
 
         long downTick;
@@ -282,6 +298,21 @@ public class IMEService extends InputMethodService {
 
             v.performClick();
 
+            return true;
+        }
+    }
+
+    private static class TouchClickAction implements View.OnTouchListener {
+
+        static void setupView(View v) {
+            v.setOnTouchListener(new TouchClickAction());
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                v.performClick();
+            }
             return true;
         }
     }

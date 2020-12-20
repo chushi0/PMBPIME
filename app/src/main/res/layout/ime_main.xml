@@ -320,25 +320,11 @@
 
 
             <TextView
-                android:id="@+id/number"
-                style="@style/InputStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="123" />
-
-            <TextView
                 android:id="@+id/capsLock"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="🔠" />
-
-            <TextView
-                android:id="@+id/space"
-                style="@style/InputStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="︺" />
 
             <TextView
                 android:id="@+id/switch_single"
@@ -348,11 +334,26 @@
                 android:text="👉" />
 
             <TextView
+                android:id="@+id/space"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="︺" />
+
+
+            <TextView
                 android:id="@+id/backspace"
                 style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="←" />
+
+            <TextView
+                android:id="@+id/enter"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="⏎" />
 
         </com.pmbp.pmbpime.view.SwipeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
